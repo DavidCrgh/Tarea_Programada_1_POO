@@ -20,7 +20,7 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-//HOLA GITHUB
+
 import logica.PersonaInteresada;
 import logica.Sismo;
 import utilitarias.Utilitaria;
