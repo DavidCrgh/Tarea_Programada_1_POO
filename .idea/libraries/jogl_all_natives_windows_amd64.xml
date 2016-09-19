@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jogl-all-natives-windows-amd64">
+    <CLASSES />
+    <JAVADOC />
+    <NATIVE>
+      <root url="jar://$PROJECT_DIR$/libs/jogl-all-natives-windows-amd64.jar!/" />
+    </NATIVE>
+    <SOURCES />
+  </library>
+</component>
