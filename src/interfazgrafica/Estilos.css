@@ -1,0 +1,92 @@
+#encabezado-aplicacion {
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 36px;
+    -fx-fill: linear-gradient(#000000,#4a4a4a);
+}
+
+#botones-barra {
+    -fx-background-color: linear-gradient(#034A91, rgba(3, 74, 145, 0.63));
+    -fx-text-fill: azure;
+    -fx-wrap-text: true;
+    -fx-font-weight: bold;
+    -fx-border-color: linear-gradient(#034A91, rgba(3, 74, 145, 0.63));
+}
+
+#botones-barra:hover {
+    -fx-background-color: linear-gradient(#da7b1a, #b65b1a);
+}
+
+#botones-barra:pressed {
+    -fx-background-color: linear-gradient(#c6681a,#a2511a);
+}
+
+#rectangulo-relleno {
+    -fx-fill: linear-gradient(#034A91, rgba(3, 74, 145, 0.63));
+    -fx-border-color: black;
+}
+
+#etiquetas{
+    -fx-font-size: 15px  ;
+    -fx-font-weight: bold;
+}
+#etiquetas-sub{
+    -fx-font-weight: bold;
+    -fx-text-alignment: right;
+}
+
+#etiqueta-localizacion {
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 20px;
+}
+
+#encabezado-sub {
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 28px;
+    -fx-fill: linear-gradient(#000000,#4a4a4a);
+}
+
+#boton-guardar{
+    -fx-background-color: linear-gradient(#034A91, rgba(3, 74, 145, 0.63));
+    -fx-text-fill: azure;
+    -fx-wrap-text: true;
+    -fx-font-weight: bold;
+    -fx-border-color: linear-gradient(#034A91, rgba(3, 74, 145, 0.63));
+}
+
+#boton-guardar:hover{
+    -fx-background-color: linear-gradient(#da7b1a, #b65b1a);
+}
+
+#boton-guardar:pressed{
+    -fx-background-color: linear-gradient(#c6681a,#a2511a);
+}
+
+#botones-detalles{
+    -fx-background-color: linear-gradient(#034A91, rgba(3, 74, 145, 0.63));
+    -fx-text-fill: azure;
+    -fx-border-color: linear-gradient(#034A91, rgba(3, 74, 145, 0.63));
+}
+
+#botones-detalles:hover{
+    -fx-background-color: linear-gradient(#da7b1a, #b65b1a);
+}
+
+#botones-detalles:pressed{
+    -fx-background-color: linear-gradient(#c6681a,#a2511a);
+}
+#boton-graficos{
+    -fx-background-color: linear-gradient(#034A91, rgba(3, 74, 145, 0.63));
+    -fx-text-fill: azure;
+    -fx-wrap-text: true;
+    -fx-font-weight: bold;
+    -fx-border-color: linear-gradient(#034A91, rgba(3, 74, 145, 0.63));
+}
+
+#boton-graficos:hover{
+    -fx-background-color: linear-gradient(#da7b1a, #b65b1a);}
+
+#boton-graficos:pressed{
+    -fx-background-color: linear-gradient(#c6681a,#a2511a);
+
+}
+
