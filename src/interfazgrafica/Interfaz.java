@@ -25,7 +25,7 @@ import logica.PersonaInteresada;
 import logica.Sismo;
 import utilitarias.Utilitaria;
 import interfazgrafica.mapas.FrameMapa;
-//Hola Mundo Hola Mundo
+
 import java.io.File;
 import java.util.ArrayList;
 
