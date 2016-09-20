@@ -844,6 +844,7 @@ public class Interfaz extends Application {
         escenarioError.setTitle("Error");
 
         Label cuerpoError = new Label();
+        cuerpoError.setId("mensaje-error");
 
         switch (modalidad){
             case 0: cuerpoError.setText("Error en la entrada de datos.");
@@ -865,7 +866,6 @@ public class Interfaz extends Application {
         }
 
         GridPane cuadrillaError = new GridPane();
-        //cuadrillaError.add(encabezadoError, 0, 0 , 2, 1);
         cuadrillaError.add(cuerpoError, 1, 2, 4, 4);
         cuadrillaError.setAlignment(Pos.CENTER);
         cuadrillaError.setPadding(new Insets(20, 20, 20, 20));
