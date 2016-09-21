@@ -1,14 +1,11 @@
 package interfazgrafica.mapas;
 
 import de.fhpotsdam.unfolding.UnfoldingMap;
-import de.fhpotsdam.unfolding.core.Coordinate;
 import de.fhpotsdam.unfolding.geo.Location;
 import de.fhpotsdam.unfolding.marker.SimplePointMarker;
 import de.fhpotsdam.unfolding.providers.Microsoft;
 import de.fhpotsdam.unfolding.utils.MapUtils;
 import processing.core.PApplet;
-
-import java.io.IOException;
 
 /**
  * Created by User on 15-Sep-16.

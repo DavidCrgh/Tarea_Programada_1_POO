@@ -1,5 +1,6 @@
 package interfazgrafica;
 
+import interfazgrafica.mapas.FrameMapa;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -20,11 +21,9 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import logica.PersonaInteresada;
 import logica.Sismo;
 import utilitarias.Utilitaria;
-import interfazgrafica.mapas.FrameMapa;
 
 import java.io.File;
 import java.util.ArrayList;

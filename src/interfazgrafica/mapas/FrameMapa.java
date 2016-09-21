@@ -1,7 +1,5 @@
 package interfazgrafica.mapas;
 
-import processing.core.PApplet;
-
 import javax.swing.*;
 import java.awt.*;
 

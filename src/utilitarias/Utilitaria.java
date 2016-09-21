@@ -1,16 +1,23 @@
 package utilitarias;
 
-import com.opencsv.*;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
 import logica.Localizacion;
 import logica.PersonaInteresada;
 import logica.Sismo;
 
-import javax.mail.*;
+import javax.mail.Message;
+import javax.mail.Multipart;
+import javax.mail.Session;
+import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
-import java.io.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
