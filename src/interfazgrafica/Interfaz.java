@@ -13,6 +13,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -26,6 +28,7 @@ import logica.Sismo;
 import utilitarias.Utilitaria;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Interfaz extends Application {
@@ -41,8 +44,13 @@ public class Interfaz extends Application {
     @Override
     public void start(Stage escenarioPrincipal) throws Exception
     {
-        objetoUtilitario.crearCSV();
-        listaObjetosSismo = objetoUtilitario.crearListaSismos();
+        try {
+            objetoUtilitario.crearCSV();
+            listaObjetosSismo = objetoUtilitario.crearListaSismos();
+        } catch (Exception e) {
+            listaObjetosSismo = new ArrayList<>();
+            mensajeError(4);
+        }
 
         escenarioPrincipal.setTitle("Registro de Sismos");
         escenarioPrincipal.setResizable(false);
@@ -417,7 +425,6 @@ public class Interfaz extends Application {
 
                             infoFormulario.add(fecha); infoFormulario.add(tiempo); infoFormulario.add(profundidad); infoFormulario.add(origen); infoFormulario.add(magnitud);
                             infoFormulario.add(latitud); infoFormulario.add(longitud); infoFormulario.add(descripcion); infoFormulario.add(esTerrestre); infoFormulario.add(provincia);
-                            System.out.println(objetoUtilitario.validarFormulario(infoFormulario));
                             if (objetoUtilitario.validarFormulario(infoFormulario)) {
                                 try{
                                     objetoUtilitario.escribirCSV(infoFormulario);
@@ -854,8 +861,8 @@ public class Interfaz extends Application {
                 break;
             case 3: cuerpoError.setText("Error el enviar correo. Por favor revise su conexión.");
                 break;
-            case 4: cuerpoError.setText("Error en el CSV. Por favor verifique que el archivo tablasSismos.csv se " +
-                    "encuentre en el directorio de instalación.");
+            case 4: cuerpoError.setText("Error en el CSV. \n Por favor verifique que el archivo tablasSismos.csv se " +
+                    "encuentre en el directorio de instalación y este que tenga el formato correcto.");
                 break;
             case 5: cuerpoError.setText("Error al cargar los contactos.");
                 break;
@@ -865,10 +872,17 @@ public class Interfaz extends Application {
         }
 
         GridPane cuadrillaError = new GridPane();
-        cuadrillaError.add(cuerpoError, 0, 0, 4, 4);
+        Image imagenError = new Image(getClass().getResourceAsStream("iconoError.png"));
+        ImageView vistaImagen = new ImageView();
+        vistaImagen.setImage(imagenError);
+        vistaImagen.setFitWidth(25);
+        vistaImagen.setFitHeight(25);
+        cuadrillaError.add(vistaImagen, 0,1);
+        cuadrillaError.add(cuerpoError, 1, 0, 4, 4);
         cuadrillaError.setAlignment(Pos.CENTER);
         cuadrillaError.setPadding(new Insets(20, 20, 20, 20));
         cuadrillaError.setVgap(10);
+        cuadrillaError.setHgap(10);
 
         Scene escenaError = new Scene(cuadrillaError);
 

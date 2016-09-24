@@ -223,7 +223,6 @@ public class Utilitaria {
         } catch (Exception e) {
             throw e;
         }
-        System.out.println("Correo enviado");
     }
 
     public boolean validarDoubles(String doubleString){
