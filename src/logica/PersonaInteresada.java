@@ -21,7 +21,7 @@ public class PersonaInteresada
     public String getNombre() {
         return nombre;
     }
-//efrgfdg
+
     public String getCorreoElectronico() {
         return correoElectronico;
     }
