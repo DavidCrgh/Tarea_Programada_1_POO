@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class PersonaInteresada
 {
     private String nombre;
-    private String correoElectronico;// afcjhdshfbhj
+    private String correoElectronico;
     private String numero;
     private ArrayList<String> provinciasInteres;
 
