@@ -17,11 +17,11 @@ public class PersonaInteresada
         provinciasInteres=pProvinciasInteres;
 
     }
-// jdnfkjsdf
+
     public String getNombre() {
         return nombre;
     }
-
+//efrgfdg
     public String getCorreoElectronico() {
         return correoElectronico;
     }
