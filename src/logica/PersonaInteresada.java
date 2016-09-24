@@ -17,7 +17,7 @@ public class PersonaInteresada
         provinciasInteres=pProvinciasInteres;
 
     }
-
+//HOLA MUNDO
     public String getNombre() {
         return nombre;
     }
