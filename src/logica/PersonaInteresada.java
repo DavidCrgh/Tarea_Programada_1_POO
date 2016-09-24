@@ -9,8 +9,6 @@ public class PersonaInteresada
     private String numero;
     private ArrayList<String> provinciasInteres;
 
-
-
     public PersonaInteresada(String pNombre, String pCorreo,String pNumero,ArrayList<String> pProvinciasInteres){
         this.nombre=pNombre;
         this.correoElectronico=pCorreo;
@@ -19,8 +17,6 @@ public class PersonaInteresada
         provinciasInteres=pProvinciasInteres;
 
     }
-
-
 
     public String getNombre() {
         return nombre;
