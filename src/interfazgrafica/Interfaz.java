@@ -30,7 +30,7 @@ import java.util.ArrayList;
 
 public class Interfaz extends Application {
 
-    private Utilitaria objetoUtilitario = new Utilitaria();
+    private final Utilitaria objetoUtilitario = new Utilitaria();
 
     private ArrayList<Sismo> listaObjetosSismo;
     private ArrayList<PersonaInteresada> listaPersonas;
@@ -67,7 +67,7 @@ public class Interfaz extends Application {
                     @Override
                     public void handle(final ActionEvent e) {
                         FileChooser fileChooser = new FileChooser();
-                        configureFileChooser(fileChooser);
+                        configurarFileChooser(fileChooser);
 
                         File contactos = fileChooser.showOpenDialog(escenarioPrincipal);
                         if (contactos != null) {
@@ -143,7 +143,7 @@ public class Interfaz extends Application {
         escenarioPrincipal.show();
     }
 
-    private static void configureFileChooser(FileChooser fileChooser) {
+    private static void configurarFileChooser(FileChooser fileChooser) {
                 fileChooser.getExtensionFilters().addAll(
                         new FileChooser.ExtensionFilter("CSV", "*.csv")
         );
@@ -865,7 +865,7 @@ public class Interfaz extends Application {
         }
 
         GridPane cuadrillaError = new GridPane();
-        cuadrillaError.add(cuerpoError, 1, 2, 4, 4);
+        cuadrillaError.add(cuerpoError, 0, 0, 4, 4);
         cuadrillaError.setAlignment(Pos.CENTER);
         cuadrillaError.setPadding(new Insets(20, 20, 20, 20));
         cuadrillaError.setVgap(10);

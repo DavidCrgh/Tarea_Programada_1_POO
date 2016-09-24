@@ -236,27 +236,19 @@ public class Utilitaria {
     }
 
     public boolean validarFormulario(String[] info){
-        if(info[0].equals("00/00/0000") || info[1].equals("00:00:00")  || info[2].equals("")  ||
-                info[3].equals("Sin definir")  || info[4].equals("")  || info[5].equals("") ||
-                info[6].equals("") || info [7].equals("") || info[9].equals("Sin definir") ||
+        return !(info[0].equals("00/00/0000") || info[1].equals("00:00:00") || info[2].equals("") ||
+                info[3].equals("Sin definir") || info[4].equals("") || info[5].equals("") ||
+                info[6].equals("") || info[7].equals("") || info[9].equals("Sin definir") ||
                 validarDoubles(info[2]) || validarDoubles(info[4]) || validarDoubles(info[5]) ||
-                validarDoubles(info[6])) {
-            return false;
-        } else{
-            return true;
-        }
+                validarDoubles(info[6]));
     }
 
     public boolean validarFormulario(ArrayList<String> info){
-        if(info.get(0).equals("00/00/0000")  || info.get(1).equals("00:00:00")  || info.get(2).equals("")  ||
-                info.get(3).equals("Sin definir")  || info.get(4).equals("")  || info.get(5).equals("") ||
-                info.get(6).equals("")  || info.get(7).equals("") || info.get(9).equals("Sin definir") ||
+        return !(info.get(0).equals("00/00/0000") || info.get(1).equals("00:00:00") || info.get(2).equals("") ||
+                info.get(3).equals("Sin definir") || info.get(4).equals("") || info.get(5).equals("") ||
+                info.get(6).equals("") || info.get(7).equals("") || info.get(9).equals("Sin definir") ||
                 validarDoubles(info.get(2)) || validarDoubles(info.get(4)) || validarDoubles(info.get(5)) ||
-                validarDoubles(info.get(6))){
-            return false;
-        } else {
-            return true;
-        }
+                validarDoubles(info.get(6)));
     }
 
     public int contadorOrigenProvincia(String buscado, ArrayList<Sismo> listaSismos, boolean esProvincia){
@@ -312,10 +304,6 @@ public class Utilitaria {
         }
 
         return cantidad;
-    }
-
-    public void main(){
-
     }
 
 }
