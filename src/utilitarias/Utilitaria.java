@@ -18,7 +18,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
@@ -303,6 +305,26 @@ public class Utilitaria {
         }
 
         return cantidad;
+    }
+
+    public int contarSismosRango(String fechaMin, String fechaMax, ArrayList<Sismo> listaSismos) throws Exception{
+        SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
+        Date fechaMinima = formateador.parse(fechaMin);
+        Date fechaMaxima = formateador.parse(fechaMax);
+
+        int i = 0;
+        int contador = 0;
+
+        while(i < listaSismos.size()){
+            Date fechaActual = formateador.parse(listaSismos.get(i).getFecha());
+            System.out.println(fechaMinima.before(fechaActual));
+            if((fechaMinima.before(fechaActual)|fechaMinima.equals(fechaMinima)) & (fechaMaxima.after(fechaActual)|fechaMaxima.equals(fechaActual))){
+                contador++;
+            }
+            i++;
+        }
+
+        return contador;
     }
 
 }

@@ -29,7 +29,9 @@ import utilitarias.Utilitaria;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Interfaz extends Application {
 
@@ -632,18 +634,35 @@ public class Interfaz extends Application {
                 } else if(selecionBotonesRadio.equals("Sismos por magnitud")){
                     modalidad = 2;
                 } else if(selecionBotonesRadio.equals("Sismos por rango de fecha")){
-                    modalidad = 3;
                     Object dia= entradaDiaInicio.getSelectionModel().getSelectedItem();
                     Object mes= entradaMesInicio.getSelectionModel().getSelectedItem();
-                    Object anno = entradaAnnoMes.getSelectionModel().getSelectedItem();
+                    Object anno = entradaAnnoInicio.getSelectionModel().getSelectedItem();
                     String fechaPrimera= objetoUtilitario.verificarInfo(dia,mes,anno,"/",true);
 
                     Object diaSegundo=entradaDiaFin.getSelectionModel().getSelectedItem();
                     Object mesSegundo=entradaMesFin.getSelectionModel().getSelectedItem();
                     Object annoSegundo=entradaAnnoFin.getSelectionModel().getSelectedItem();
                     String fechaSegunda=objetoUtilitario.verificarInfo(diaSegundo,mesSegundo,annoSegundo,"/",true);
-                    fechas.add(fechaPrimera);
-                    fechas.add(fechaSegunda);
+                    SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fechaMin;
+                    Date fechaMax;
+                    try{
+                        fechaMin = formateador.parse(fechaPrimera);
+                        fechaMax = formateador.parse(fechaSegunda);
+                    } catch (Exception error){
+                        fechaMin = null;
+                        fechaMax = null;
+                    }
+
+                    boolean errorEnFechas = fechaMin == null || fechaMax == null || fechaMin.after(fechaMax);
+
+                    if(fechaPrimera.equals("00/00/0000") | fechaSegunda.equals("00/00/0000") | errorEnFechas){
+                        modalidad = -1;
+                    } else {
+                        modalidad = 3;
+                        fechas.add(fechaPrimera);
+                        fechas.add(fechaSegunda);
+                    }
                 } else {
                     modalidad = 4;
                     if(entradaAnnoMes.getSelectionModel().getSelectedItem() == null){
@@ -901,12 +920,12 @@ public class Interfaz extends Application {
                 break;
             case 2: crearGraficoTabularMagnitud();
                 break;
-            case 3: System.out.println("Por hacer"); //TODO
+            case 3: crearTabularRango(fechas.get(0), fechas.get(1));
                 break;
             case 4: crearGraficoBarras(fechas.get(0));
-
+                break;
+            default: mensajeError(0);
         }
-
     }
 
     public void crearHistograma(){
@@ -992,11 +1011,53 @@ public class Interfaz extends Application {
         escenarioPastel.showAndWait();
     }
 
+    public void crearTabularRango(String fechaMin, String fechaMax){
+        Stage escenarioTabla = new Stage();
+        escenarioTabla.setTitle("Grafico por Rango de Fechas");
+
+        int annoInicio = Integer.parseInt(fechaMin.substring(6,10));
+        int annoFin = Integer.parseInt(fechaMax.substring(6,10));
+        String meses[] = {"Enero:","Febrero:","Marzo:","Abril:","Mayo:","Junio:","Julio:",
+                "Agosto:","Setiembre:","Octubre:","Noviembre:","Diciembre:"};
+        String numMeses[] = {"01","02","03","04","05","06","07","08","09","10","11","12"};
+
+        GridPane cuadrillaInformacion = new GridPane();
+        cuadrillaInformacion.setPadding(new Insets(25,25,25,25));
+        cuadrillaInformacion.setHgap(10);
+        cuadrillaInformacion.setVgap(10);
+
+        int fila = 0;
+
+        for(int i = annoInicio; i <= annoFin; i++){
+            cuadrillaInformacion.add(new Label(i+":"), 0, fila);//,1,12);
+            for(int j = 0; j < 12; j++){
+                cuadrillaInformacion.add(new Label(meses[j]), 1, fila);
+                String contadorSismos = ""+objetoUtilitario.contarSismosMes(numMeses[j],i+"",listaObjetosSismo);
+                cuadrillaInformacion.add(new Label(contadorSismos), 2, fila);
+                fila++;
+            }
+        }
+        cuadrillaInformacion.add(new Label("Total de Sismos entre el "+fechaMin+" y "+fechaMax+":"),4,0);
+        try{
+        cuadrillaInformacion.add(new Label(""+objetoUtilitario.contarSismosRango(fechaMin,fechaMax,listaObjetosSismo)),6,0);
+        }catch(Exception Error){
+            mensajeError(6);
+
+        }
+
+        ScrollPane rangoFechas = new ScrollPane();
+        rangoFechas.setContent(cuadrillaInformacion);
+
+        Scene escenaTabla = new Scene(rangoFechas);
+        escenarioTabla.setScene(escenaTabla);
+        escenarioTabla.initModality(Modality.APPLICATION_MODAL);
+        escenarioTabla.setResizable(false);
+        escenarioTabla.showAndWait();
+    }
+
     public void crearGraficoBarras(String anno){
         Stage escenarioHistograma = new Stage();
         escenarioHistograma.setTitle("Grafico de Barras");
-
-
 
         VBox contenedorGrafico = new VBox();
         CategoryAxis ejeX = new CategoryAxis();
@@ -1049,7 +1110,7 @@ public class Interfaz extends Application {
 
     public void crearGraficoTabularMagnitud(){
         Stage escenarioTabla = new Stage();
-        escenarioTabla.setTitle("Grafico por Origen");
+        escenarioTabla.setTitle("Grafico por Magnitud");
 
         int micro = objetoUtilitario.contarMagnitud(0.0, 1.9, listaObjetosSismo);
         int menor = objetoUtilitario.contarMagnitud(2.0, 3.9, listaObjetosSismo);
