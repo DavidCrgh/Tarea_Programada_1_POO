@@ -24,9 +24,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
-/**
- * Created by Francisco Contreras on 13/09/2016.
- */
 public class Utilitaria {
 
     public boolean crearCSV() throws IOException{
@@ -42,6 +39,7 @@ public class Utilitaria {
             return false;
         }
     }
+
 
     public ArrayList<Sismo> crearListaSismos() throws IOException{
         ArrayList<Sismo> listaSismos = new ArrayList<>();

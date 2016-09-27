@@ -2,6 +2,11 @@ package logica;
 
 import java.util.ArrayList;
 
+/**
+ * Clase que encapsula la información de contacto de una persona dada. Alberga el correo número
+ * telefónico. Ademas posee un arreglo dinámico de las provincias sobre las cuales el contacto
+ * desea recibir una notificación en caso de un sismo.
+ */
 public class PersonaInteresada
 {
     private String nombre;
@@ -9,6 +14,13 @@ public class PersonaInteresada
     private String numero;
     private ArrayList<String> provinciasInteres;
 
+    /**
+     * Constructor clase PersonaInteresada
+     * @param pNombre nombre de la persona
+     * @param pCorreo correo de la persona
+     * @param pNumero numero de la persona
+     * @param pProvinciasInteres provincia/s en que esta interesada la persona
+     */
     public PersonaInteresada(String pNombre, String pCorreo,String pNumero,ArrayList<String> pProvinciasInteres){
         this.nombre=pNombre;
         this.correoElectronico=pCorreo;

@@ -1,5 +1,11 @@
 package logica;
 
+/**
+ * Clase para la representación de un Sismo, incluye la localización del epicentro por latitud,
+ * longitud, y provincia.
+ *
+ * @see logica.Localizacion Localización
+ */
 public class Sismo
 {
     private String  magnitud;
@@ -10,6 +16,16 @@ public class Sismo
     private Localizacion localizacion;
     private String indice;
 
+    /**
+     * Constructor de la clase Sismo
+     * @param pFecha fecha cuando el sismo ocurrio
+     * @param pTiempo tiempo en el que el sismo ocurrio
+     * @param pProfundidadKm profundidad del sismo
+     * @param pOrigenFalla origen del sismo
+     * @param pMagnitud magnitud
+     * @param pLocalizacion localizacion del sismo
+     * @param pIndice numero de sismo
+     */
     public Sismo(String pFecha, String pTiempo, String pProfundidadKm, String pOrigenFalla, String pMagnitud, Localizacion pLocalizacion, String pIndice){
         setFecha(pFecha);
         setTiempo(pTiempo);

@@ -1,7 +1,10 @@
 package logica;
 
 /**
- * Created by User on 12-Sep-16.
+ * Clase para la representacion de una localizacion por su latitud y longitud entre otros atributos.
+ * Tipicamente pertenece a una instancia de la clase Sismo.
+ *
+ * @see logica.Sismo Sismo
  */
 public class Localizacion
 {
@@ -11,6 +14,14 @@ public class Localizacion
     private boolean esTerrestre;
     private String provincia;
 
+    /**
+     * Constructor de la clase Locatilazion
+     * @param latitud latitud donde ocurrio
+     * @param longitud longitud donde ocurrio
+     * @param descripcion descripcion
+     * @param esTerrestre si el sismo es terreste o maritimo
+     * @param pProvincia provincia donde ocurrio
+     */
     public Localizacion(double latitud, double longitud, String descripcion, String esTerrestre, String pProvincia) {
         setLatitud(latitud);
         setLongitud(longitud);
