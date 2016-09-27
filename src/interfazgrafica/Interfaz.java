@@ -849,6 +849,8 @@ public class Interfaz extends Application {
         int indice=0;
 
         for(PersonaInteresada persona : listaPersonas){
+            String numero= persona.getNumero();
+            objetoUtilitario.enviarMensaje(provincia,numero);
             ArrayList<String> provincias= persona.getProvinciasInteres();
             while(indice< provincias.size()){
 
